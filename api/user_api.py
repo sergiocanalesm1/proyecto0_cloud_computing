@@ -11,8 +11,8 @@ class UserAPI( Resource ):
         self.post_schema = User_Schema()
 
     def post( self ):
-        if self.getUsername( request ) is not None:
-            return { "message" : "Please register with a non existing user" }, 400
+        if self._getUsername( request ) is not None:
+            return { "message" : "Please register with a non existing username" }, 400
         new_user = User(
             username = request.json[ "username" ],
             password = request.json[ "password" ]
@@ -23,16 +23,16 @@ class UserAPI( Resource ):
         return self.post_schema.dump( new_user )
 
     def get( self ):
-        user = self.getUser( request )
+        user = self._getUser( request )
         if user is None:
             return { "message" : "No user found with those credentials" }, 400
         return self.post_schema.dump( user )
 
-    def getUser( self, request ):
+    def _getUser( self, request ):
         for row in User.query.all():
             if row.username == request.json[ "username" ] and row.password == request.json[ "password" ]:
                 return row
-    def getUsername( self, request ):
+    def _getUsername( self, request ):
         for row in User.query.all():
             if row.username == request.json[ "username" ]:
                 return row

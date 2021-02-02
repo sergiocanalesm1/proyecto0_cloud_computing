@@ -8,24 +8,15 @@ from models.event_model import Event
 
 
 class SingleEventAPI( Resource ):
-    """
-    listar en descendente con start date
-    get single ----------- id
-    post
-    put
-    delete
-    """
     def  __init__( self ):
         self.post_schema = Event_Schema()
 
-    def get( self, id ):
-        event = Event.query.get_or_404( id )
+    def get( self, event_id ):
+        event = Event.query.get_or_404( event_id )
         return self.post_schema.dump( event )
 
-
-
-    def put( self, id ):
-        event = Event.query.get_or_404( id )
+    def put( self, event_id ):
+        event = Event.query.get_or_404( event_id )
         if "id" in request.json:
             event.id = request.json[ "id" ]
         if "name" in request.json:
@@ -47,11 +38,11 @@ class SingleEventAPI( Resource ):
         db.session.commit()
         return self.post_schema.dump( event )
 
-    def delete( self, id ):
-        event = Event.query.get_or_404( id )
+    def delete( self, event_id ):
+        event = Event.query.get_or_404( event_id )
         db.session.delete( event )
         db.session.commit()
-        return { "message" : "successfully deleted"}, 204
+        return { "message" : "successfully deleted" }, 204
 
 class MultipleEventAPI( Resource ):
     def __init__( self ):
@@ -75,6 +66,6 @@ class MultipleEventAPI( Resource ):
         return self.post_schema.dump( new_event )
 
     def get( self ):
-        events = list( Event.query.all() )
-        events.sort( key = lambda event: event.start_date, reverse = True )
+        events = list( Event.query.filter( Event.user_id == request.json[ "user_id" ] ) )
+        #events.sort( key = lambda event: event.start_date, reverse = True )
         return self.posts_schema.dump( events )

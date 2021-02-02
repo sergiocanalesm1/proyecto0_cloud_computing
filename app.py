@@ -8,9 +8,8 @@ app = Flask( __name__ )
 
 app.config['JWT_SECRET_KEY'] = 'super-secret'
 app.config[ 'WHITE_LIST_ROUTES' ] = [
-    ( "PUT", "/auth/user/<int:user_id>" ),
-    ( "GET", "/auth/user" ),
-    ( "POST", "/auth/user" )
+    ( "GET", "/auth" ),
+    ( "POST", "/auth" )
 ]
 #app.config[ 'JWT_ROUTER_API_NAME' ] = "/api/v1"
 app.config[ 'SQLALCHEMY_DATABASE_URI' ] = 'sqlite:///test.db'

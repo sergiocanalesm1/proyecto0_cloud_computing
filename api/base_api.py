@@ -10,6 +10,6 @@ class BaseAPI():
         api = Api( app )
         api.add_resource( user_api.UserAPI, '/auth' )
         api.add_resource( event_api.MultipleEventAPI, '/events' )
-        api.add_resource( event_api.SingleEventAPI, '/events/<int:id>' )
+        api.add_resource( event_api.SingleEventAPI, '/event/<int:id>' )
         #api.add_resource( publication_api.MultiplePublicationResource, '/publications' )
         #api.add_resource( publication_api.SinglePublicationResource, '/publications/<int:id>' )
