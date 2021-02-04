@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" style="text/css" href="styles.css">
+    <title>Proyecto 0</title>
+  </head>
+  <body>
+    <div id="login" class="main" >
+      <h1 class='title'>¡Bienvenidos!</h1>
+      <br>
+      <h3 class='subtitle'>Para poder manejar eventos, por favor registrarse si no tiene cuenta o acceder a una ya existente</h3>
+      <br>
+      <div class='d-flex justify-content-center'>
+        <input type="text" id='input-username' placeholder="usuario">
+      </div>
+      <div class='d-flex justify-content-center'>
+        <input type="password" id='input-password' placeholder="contraseña">
+      </div>
+      <br>
+      <div class='d-flex justify-content-center'>
+        <input type="button" id="btn-login" value="Acceder" disabled='true'>
+      </div>
+      <div class='d-flex justify-content-center'>
+        <input type="button" id="btn-registry" value="Registrarse" disabled='true'>
+      </div>
+    </div>
+
+    <div id="home" class="main" hidden="true">
+      <h1 class='title'>Mis Eventos</h1>
+      <br>
+      <h3 class='subtitle'>Escoja la opción que desee realizar</h3>
+      <br>
+      <div class="d-flex justify-content-center">
+        <input type="button" id="btn-list" value="Listar Eventos">
+        <input type="button" id="btn-create" value="Crear Evento">
+      </div>
+      <br>
+      <div id="div-list" class="d-flex justify-content-center" hidden="true"></div>
+      <div id="div-fill" hidden="true">
+        <div class="d-flex justify-content-center">
+          <select name="Categoría" id="input-category">
+            <option value="">-</option>
+            <option value="Conferencia">Conferencia</option>
+            <option value="Seminario">Seminario</option>
+            <option value="Congreso">Congreso</option>
+            <option value="Curso">Curso</option>
+          </select>
+        </div>
+        <div class="d-flex justify-content-center">
+          <input type="text" id='input-name' placeholder="Nombre del Evento" value="">
+        </div>
+        <div class="d-flex justify-content-center">
+          <input type="text" id='input-place' placeholder="Lugar" value="">
+        </div>
+        <div class="d-flex justify-content-center">
+          <input type="text" id='input-address' placeholder="Dirección" value="">
+        </div>
+        <div class="d-flex justify-content-center">
+          <select name="Virtualidad" id="input-is-virtual">
+            <option value="">-</option>
+            <option value="virtual">Virtual</option>
+            <option value="presencial">Presencial</option>
+          </select>
+        </div>
+        <div class="d-flex justify-content-center">
+          <input type="date" id='input-start-date' value="">
+        </div>
+        <p>Fecha de Inicio</p>
+        
+        <div class="d-flex justify-content-center">
+          <input type="date" id='input-end-date' value="">
+        </div>
+        <p>Fecha de Finalización</p>
+        <br>
+        <div class="d-flex justify-content-center">
+          <input type="button" id="btn-send" value="Enviar">
+        </div>
+      </div> 
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

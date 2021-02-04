@@ -1,0 +1,28 @@
+p {
+    text-align: center;
+}
+
+.main {
+    margin-top: 10%;
+}
+
+.title {
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: grey;
+    font-size: large;
+}
+
+.form {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+}
+
+.details {
+    color: grey;
+}
