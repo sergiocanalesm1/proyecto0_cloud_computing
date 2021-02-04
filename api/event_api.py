@@ -29,9 +29,9 @@ class SingleEventAPI( Resource ):
         if "address" in request.json:
             event.address = request.json[ "address" ]
         if "start_date" in request.json:
-            event.start_date = datetime.datetime.strptime( request.json[ "start_date" ], '%Y-%m-%d' ),
+            event.start_date = datetime.datetime.strptime( request.json[ "start_date" ], '%Y-%m-%d %H:%M:%S' ),
         if "end_date" in request.json:
-            event.end_date = datetime.datetime.strptime( request.json[ "end_date" ], '%Y-%m-%d' ),
+            event.end_date = datetime.datetime.strptime( request.json[ "end_date" ], '%Y-%m-%d %H:%M:%S' ),
         if "is_virtual" in request.json:
             event.is_virtual = request.json[ "is_virtual" ]
         if "user_id" in request.json:
@@ -39,8 +39,8 @@ class SingleEventAPI( Resource ):
         db.session.commit()
         return self.post_schema.dump( event )
 
-    def delete( self, event_id ):
-        event = Event.query.get_or_404( event_id )
+    def delete( self, id ):
+        event = Event.query.get_or_404( id )
         db.session.delete( event )
         db.session.commit()
         return { "message" : "successfully deleted" }, 204
@@ -57,8 +57,8 @@ class EventAPI( Resource ):
             category = request.json[ "category" ],
             place = request.json[ "place" ],
             address = request.json[ "address" ],
-            start_date = datetime.datetime.strptime( request.json[ "start_date" ], '%Y-%m-%d' ),
-            end_date = datetime.datetime.strptime( request.json[ "end_date" ], '%Y-%m-%d' ),
+            start_date = datetime.datetime.strptime( request.json[ "start_date" ], '%Y-%m-%d %H:%M:%S' ),
+            end_date = datetime.datetime.strptime( request.json[ "end_date" ], '%Y-%m-%d %H:%M:%S' ),
             is_virtual = request.json[ "is_virtual" ],
             user_id = request.json[ "user_id" ]
         )
