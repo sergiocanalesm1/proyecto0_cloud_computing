@@ -57,6 +57,7 @@ function initPage( userId ) {
     localStorage.setItem( "userId", parseInt( userId ) )
     document.getElementById( "login" ).hidden = true;
     document.getElementById( "home" ).hidden = false;
+    getEvents();
 }
 
 document.getElementById( "btn-list" ).onclick = getEvents;
