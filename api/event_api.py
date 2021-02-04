@@ -18,7 +18,6 @@ class SingleEventAPI( Resource ):
 
     def put( self, id ):
         event = Event.query.get_or_404( id )
-        print( request.json )
         if "id" in request.json:
             event.id = request.json[ "id" ]
         if "name" in request.json:
@@ -40,8 +39,8 @@ class SingleEventAPI( Resource ):
         db.session.commit()
         return self.post_schema.dump( event )
 
-    def delete( self, id ):
-        event = Event.query.get_or_404( id )
+    def delete( self, event_id ):
+        event = Event.query.get_or_404( event_id )
         db.session.delete( event )
         db.session.commit()
         return { "message" : "successfully deleted" }, 204

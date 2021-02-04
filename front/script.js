@@ -93,8 +93,8 @@ function listEvents( events ) {
                         <li> Categoría : ${ events[ i ].category } </li>
                         <li> Lugar : ${ events[ i ].place } </li>
                         <li> Dirección : ${ events[ i ].address } </li>
-                        <li> Fecha de Inicio : ${ events[ i ].start_date.split( "T" )[ 0 ] } </li>
-                        <li> Fecha de Finalización : ${ events[ i ].end_date.split( "T" )[ 0 ] } </li>
+                        <li> Fecha de Inicio : ${ events[ i ].start_date } </li>
+                        <li> Fecha de Finalización : ${ events[ i ].end_date } </li>
                         <li> Virtual : ${ isVirtual( events[ i ].is_virtual ) } </li>
                     </ul>
                     <br>

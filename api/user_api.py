@@ -1,3 +1,4 @@
+from flask_cors import cross_origin
 from flask_restful import Resource, request
 #from flask_jwt_extended import create_access_token
 
@@ -10,6 +11,7 @@ class RegistryAPI(Resource):
     def __init__( self ):
         self.post_schema = User_Schema()
 
+    @cross_origin()
     def post( self ):
         if self._getUsername( request.json[ "username" ] ) is not None:
             return { "message" : "Please register with a non existing username" }, 400
@@ -22,6 +24,7 @@ class RegistryAPI(Resource):
         db.session.commit()
         return self.post_schema.dump( new_user )
 
+    @cross_origin()
     def get( self ):
         user = self._getUser( request.json[ "username" ], request.json[ "password" ] )
         if user is None:
@@ -37,6 +40,7 @@ class LoginAPI( Resource ):
     def __init__( self ):
         self.post_schema = User_Schema()
 
+    @cross_origin()
     def post( self ):
         user = self._getUser( request.json[ "username" ], request.json[ "password" ] )
         if user is None:
